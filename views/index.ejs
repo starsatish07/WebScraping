@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EventPulse Sydney</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Upcoming Events in Sydney</h1>
+ 
+  <div class="events">
+    <% events.forEach(event => { %>
+      <div class="event">
+        <h2><%= event.title %></h2>
+        <p><strong>Date:</strong> <%= event.date %></p>
+        <p><strong>Venue:</strong> <%= event.venue %></p>
+        <form action="/subscribe" method="POST">
+          <input type="hidden" name="link" value="<%= event.link %>">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <button type="submit">GET TICKETS</button>
+        </form>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>
